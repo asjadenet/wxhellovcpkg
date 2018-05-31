@@ -78,7 +78,11 @@ and your program used 3.0 (wchar_t,compiler with C++ ABI 1011,wx containers,comp
 ```
 It's better to install wxWidgets from source using:
 ```
-.
+sudo apt-get install libgtk-3-dev
+./configure
+make
+sudo make install
+sudo  ldconfig
 ```
 ## Mac OS X
 Your can just install wxwidgets using command:
