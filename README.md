@@ -65,6 +65,7 @@ Then clone git directory and build:
 ```
 git clone https://github.com/asjadenet/wxhellovcpkg.git
 cd wxhellovcpkg
+chmod +x buildmaclinux.sh
 ./buildmaclinux.sh
 ```
 ## Mac OS X
@@ -76,5 +77,6 @@ Then clone git directory and build:
 ```
 git clone https://github.com/asjadenet/wxhellovcpkg.git
 cd wxhellovcpkg
+chmod +x buildmaclinux.sh
 ./buildmaclinux.sh
 ```
