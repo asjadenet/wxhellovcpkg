@@ -30,3 +30,16 @@
 *.exe
 *.out
 *.app
+
+Build/
+build/
+ReleaseWin64static/
+ReleaseWin32static/
+DebugWin64static/
+DebugWin32static/
+ReleaseWin64dynamic/
+ReleaseWin32dynamic/
+DebugWin64dynamic/
+DebugWin32dynamic/
+msys2build32/
+msys2build64/
