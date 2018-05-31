@@ -68,6 +68,18 @@ cd wxhellovcpkg
 chmod +x buildmaclinux.sh
 ./buildmaclinux.sh
 ```
+Note:
+
+If you get error warning like this:
+```
+Warning: Mismatch between the program and library build versions detected.
+The library used 3.0 (wchar_t,compiler with C++ ABI 1009,wx containers,compatible with 2.8),
+and your program used 3.0 (wchar_t,compiler with C++ ABI 1011,wx containers,compatible with 2.8).
+```
+It's better to install wxWidgets from source using:
+```
+.
+```
 ## Mac OS X
 Your can just install wxwidgets using command:
 ```

@@ -31,6 +31,7 @@
 *.out
 *.app
 
+.idea/
 Build/
 build/
 ReleaseWin64static/
