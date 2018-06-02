@@ -1,0 +1,31 @@
+version: 1.0.{build}
+image: Visual Studio 2017
+init:
+- cmd: cmake --version
+environment:
+  platform: x64
+install:
+- cmd: "cd C:\\tools\\vcpkg
+- cmd: git pull
+- cmd: .\\bootstrap-vcpkg.bat
+  
+- cmd: if "%platform%"=="Win32" set VCPKG_ARCH=x86-windows
+- cmd: if "%platform%"=="x64"   set VCPKG_ARCH=x64-windows
+- cmd: echo VCPKG_ARCH:%VCPKG_ARCH%
+- cmd: vcpkg remove --outdated --recurse
+- cmd: vcpkg install --recurse --triplet %VCPKG_ARCH% wxwidgets
+- cmd: vcpkg integrate install
+- cmd: cd "%APPVEYOR_BUILD_FOLDER%""
+build_script:
+- cmd: "SET VCPKG=C:\\tools\\vcpkg
+
+- cmd: SET "arch=Win64"
+- cmd: SET "generator=Visual Studio 15 2017 Win64"
+- cmd: SET "build=Release" 
+
+- cmd: SET "linking=dynamic"
+
+- cmd: set "builddir=%build%%arch%%linking%" 
+- cmd: echo Building %build% %arch% using %linking% libraries..
+- cmd: cmake -G "%generator%" -DCMAKE_BUILD_TYPE=%build% -H. -B%builddir% -DCMAKE_TOOLCHAIN_FILE=%VCPKG%\\scripts\\buildsystems\\vcpkg.cmake -DLINKING_TYPE=%linking%
+- cmd: cmake --build .\\%builddir% --config %build%"
