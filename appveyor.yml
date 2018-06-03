@@ -18,8 +18,6 @@ install:
 - cmd: "vcpkg integrate install"
 - cmd: "cd \"%APPVEYOR_BUILD_FOLDER%\""
 
-cache:
-  - C:\tools\vcpkg\installed -> .appveyor.yml
 configuration:
   - Debug
   - Release
