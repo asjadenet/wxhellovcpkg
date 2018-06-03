@@ -15,9 +15,12 @@ install:
 - cmd: "echo VCPKG_ARCH:%VCPKG_ARCH%"
 - cmd: "vcpkg remove --outdated --recurse"
 - cmd: "vcpkg install --recurse --triplet %VCPKG_ARCH% wxwidgets"
+- cmd: "vcpkg install --recurse --triplet %VCPKG_ARCH%-static wxwidgets"
 - cmd: "vcpkg integrate install"
 - cmd: "cd \"%APPVEYOR_BUILD_FOLDER%\""
 
+cache:
+  - C:\tools\vcpkg\installed -> .appveyor.yml
 configuration:
   - Debug
   - Release
