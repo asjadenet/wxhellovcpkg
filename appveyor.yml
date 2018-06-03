@@ -36,3 +36,9 @@ build_script:
 - cmd: "echo Building %build% %arch% using %linking% libraries.."
 - cmd: "cmake -G \"%generator%\" -DCMAKE_BUILD_TYPE=%build% -H. -B%builddir% -DCMAKE_TOOLCHAIN_FILE=%VCPKG%\\scripts\\buildsystems\\vcpkg.cmake -DLINKING_TYPE=%linking%"
 - cmd: "cmake --build .\\%builddir% --config %build%"
+
+- cmd: "SET \"linking=static\""
+- cmd: "set \"builddir=%build%%arch%%linking%\" "
+- cmd: "echo Building %build% %arch% using %linking% libraries.."
+- cmd: "cmake -G \"%generator%\" -DCMAKE_BUILD_TYPE=%build% -H. -B%builddir% -DCMAKE_TOOLCHAIN_FILE=%VCPKG%\\scripts\\buildsystems\\vcpkg.cmake -DLINKING_TYPE=%linking%"
+- cmd: "cmake --build .\\%builddir% --config %build%"
