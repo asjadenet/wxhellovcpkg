@@ -1,5 +1,10 @@
 version: 1.0.{build}
 image: Visual Studio 2017
+
+environment:
+  matrix:
+      CONFIG: Debug
+      CONFIG: Release
 init:
 - cmd: cmake --version
 environment:
@@ -16,6 +21,9 @@ install:
 - cmd: "vcpkg install --recurse --triplet %VCPKG_ARCH% wxwidgets"
 - cmd: "vcpkg integrate install"
 - cmd: "cd \"%APPVEYOR_BUILD_FOLDER%\""
+
+cache:
+  - C:\tools\vcpkg\installed -> .appveyor.yml
 build_script:
 - cmd: "SET VCPKG=C:\\tools\\vcpkg"
 
