@@ -1,10 +1,6 @@
 version: 1.0.{build}
 image: Visual Studio 2017
 
-environment:
-  matrix:
-      CONFIG: Debug
-      CONFIG: Release
 init:
 - cmd: cmake --version
 environment:
@@ -24,6 +20,9 @@ install:
 
 cache:
   - C:\tools\vcpkg\installed -> .appveyor.yml
+configuration:
+  - Debug
+  - Release
 build_script:
 - cmd: "SET VCPKG=C:\\tools\\vcpkg"
 
