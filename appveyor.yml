@@ -3,20 +3,14 @@ image: Visual Studio 2017
 
 init:
 - cmd: cmake --version
-# environment:
-  # platform: x64
+
 install:
 - cmd: "cd C:\\tools\\vcpkg"
 - cmd: "git pull"
 - cmd: ".\\bootstrap-vcpkg.bat"
 
-- cmd: "set VCPKG_ARCH=x86-windows"
-- cmd: "echo VCPKG_ARCH:%VCPKG_ARCH%"
-- cmd: "vcpkg remove --outdated --recurse"
-- cmd: "vcpkg install --recurse --triplet %VCPKG_ARCH% wxwidgets"
-- cmd: "vcpkg install --recurse --triplet %VCPKG_ARCH%-static wxwidgets"
-
 - cmd: "set VCPKG_ARCH=x64-windows"
+- cmd: "echo VCPKG_ARCH:%VCPKG_ARCH%"
 - cmd: "vcpkg install --recurse --triplet %VCPKG_ARCH% wxwidgets"
 - cmd: "vcpkg install --recurse --triplet %VCPKG_ARCH%-static wxwidgets"
 
@@ -24,29 +18,15 @@ install:
 - cmd: "cd \"%APPVEYOR_BUILD_FOLDER%\""
 
 platform:
-  - Win32
   - x64
-cache:
-  - C:\tools\vcpkg\installed -> .appveyor.yml
+
+cache: c:\tools\vcpkg\installed\
+  
 configuration:
   - Debug
   - Release
 build_script:
+- cmd: if "%platform%"=="x64" ( set TARGET_PLATFORM=Win64 ) else ( set TARGET_PLATFORM=Win32 )
 - cmd: "SET VCPKG=C:\\tools\\vcpkg"
-
-- cmd: "SET \"arch=Win64\""
-- cmd: "SET \"generator=Visual Studio 15 2017\""
-- cmd: "SET \"build=Release\" "
-
-- cmd: "SET \"linking=dynamic\""
-
-- cmd: "set \"builddir=%build%%arch%%linking%\" "
-- cmd: "echo Building %build% %arch% using %linking% libraries.."
-- cmd: "cmake -G \"%generator%\" -DCMAKE_BUILD_TYPE=%build% -H. -B%builddir% -A%PLATFORM% -DCMAKE_TOOLCHAIN_FILE=%VCPKG%\\scripts\\buildsystems\\vcpkg.cmake -DLINKING_TYPE=%linking%"
-- cmd: "cmake --build .\\%builddir% --config %build%"
-
-- cmd: "SET \"linking=static\""
-- cmd: "set \"builddir=%build%%arch%%linking%\" "
-- cmd: "echo Building %build% %arch% using %linking% libraries.."
-- cmd: "cmake -G \"%generator%\" -DCMAKE_BUILD_TYPE=%build% -H. -B%builddir% -A%PLATFORM% -DCMAKE_TOOLCHAIN_FILE=%VCPKG%\\scripts\\buildsystems\\vcpkg.cmake -DLINKING_TYPE=%linking%"
-- cmd: "cmake --build .\\%builddir% --config %build%"
+- cmd: "CALL buildmsvc.bat %TARGET_PLATFORM% %configuration% dynamic"
+- cmd: "CALL buildmsvc.bat %TARGET_PLATFORM% %configuration% static"
