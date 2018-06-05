@@ -2,34 +2,23 @@ language: cpp
 compiler: gcc
 sudo: required
 
-matrix:
-  include:
-    - os: linux
-        compiler:
-                    clang
-                    gcc
+compiler:
+  - clang
+  - gcc
 
-        packages:
-                    cmake-data
-                    cmake
-          
-        before_install:
-                    - sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
-                    - sudo apt-get update
-                    - sudo apt-get install -y libwxgtk3.0-dev
-        install:
-                    - sudo apt-get install -qq g++-6
-                    - sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-6 90
-          
-    - os: osx
-        compiler:
-                    xcode8
-          
-        before_install:
-            - brew update
-            - brew install wxmac
+packages:
+  - cmake-data
+  - cmake
+  
+before_install:
+  - sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
+  - sudo apt-get update
+  - sudo apt-get install -y libwxgtk3.0-dev
 
-
+install: 
+  # C++17
+  - sudo apt-get install -qq g++-6
+  - sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-6 90
   
 before_script:
   - mkdir build
