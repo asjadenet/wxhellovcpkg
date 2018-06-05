@@ -7,9 +7,11 @@ Microsoft [Vcpkg](https://github.com/Microsoft/vcpkg) is quite a good package ma
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-| Build status          | Systems / Compilers         |
-| ----------------------|-----------------------------|
-|[![Build status](https://ci.appveyor.com/api/projects/status/bim8mq9csh0u6eeq?svg=true)](https://ci.appveyor.com/project/asjadenet/wxhellovcpkg)|Ununtu Linux GNU 5.4.0|
+| Build status          | Systems / Compilers         |   CI    |
+| ----------------------|-----------------------------|---------|
+|[![Build status](https://ci.appveyor.com/api/projects/status/nwy0sbejq3g43l0i/branch/master?svg=true)](https://ci.appveyor.com/project/asjadenet/wxhellovcpkg-68a32/branch/master)|Windows|AppVeyor|
+|[![Build status](https://ci.appveyor.com/api/projects/status/bim8mq9csh0u6eeq?svg=true)](https://ci.appveyor.com/project/asjadenet/wxhellovcpkg)|Ununtu Linux GNU 5.4.0|AppVeyor|
+|[![Build status](https://travis-ci.org/asjadenet/wxhellovcpkg.svg?branch=master)](https://travis-ci.org/asjadenet/wxhellovcpkg)|Ununtu Linux, OS X|Travis|
 
 ## Prerequisites:
 - Windows 10, 8.1, 7, Linux, or MacOS
