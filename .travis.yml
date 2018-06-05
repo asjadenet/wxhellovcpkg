@@ -7,7 +7,9 @@ matrix:
     - os: linux
       sudo: true
       compiler: gcc
-                clang
+    - os: linux
+      sudo: true
+      compiler: clang
     - os: osx
       compiler: xcode8
 
@@ -34,6 +36,7 @@ before_script:
 
 script:
   - pwd
+  - g++ --version
   - make
   - ls -la
 
