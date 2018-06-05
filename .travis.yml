@@ -1,4 +1,5 @@
 language: cpp
+compiler: gcc
 sudo: required
 
 compiler:
@@ -8,7 +9,11 @@ compiler:
 packages:
   - cmake-data
   - cmake
-
+  
+before_install:
+  - sudo apt-get update
+  - sudo apt-get install -y libwxgtk3.0-dev
+  
 before_script:
   - mkdir build
   - cd build

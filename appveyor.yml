@@ -29,17 +29,16 @@ build_script:
 
 - cmd: "SET \"arch=Win64\""
 - cmd: "SET \"generator=Visual Studio 15 2017 Win64\""
-- cmd: "SET \"build=Release\" "
+# - cmd: "SET \"build=Release\" "
 
 - cmd: "SET \"linking=dynamic\""
-
-- cmd: "set \"builddir=%build%%arch%%linking%\" "
-- cmd: "echo Building %build% %arch% using %linking% libraries.."
-- cmd: "cmake -G \"%generator%\" -DCMAKE_BUILD_TYPE=%build% -H. -B%builddir% -DCMAKE_TOOLCHAIN_FILE=%VCPKG%\\scripts\\buildsystems\\vcpkg.cmake -DLINKING_TYPE=%linking%"
-- cmd: "cmake --build .\\%builddir% --config %build%"
+- cmd: "set \"builddir=%configuration%%arch%%linking%\" "
+- cmd: "echo Building %configuration% %arch% using %linking% libraries.."
+- cmd: "cmake -G \"%generator%\" -DCMAKE_BUILD_TYPE=%configuration% -H. -B%builddir% -DCMAKE_TOOLCHAIN_FILE=%VCPKG%\\scripts\\buildsystems\\vcpkg.cmake -DLINKING_TYPE=%linking%"
+- cmd: "cmake --build .\\%builddir% --config %configuration%"
 
 - cmd: "SET \"linking=static\""
-- cmd: "set \"builddir=%build%%arch%%linking%\" "
-- cmd: "echo Building %build% %arch% using %linking% libraries.."
-- cmd: "cmake -G \"%generator%\" -DCMAKE_BUILD_TYPE=%build% -H. -B%builddir% -DCMAKE_TOOLCHAIN_FILE=%VCPKG%\\scripts\\buildsystems\\vcpkg.cmake -DLINKING_TYPE=%linking%"
-- cmd: "cmake --build .\\%builddir% --config %build%"
+- cmd: "set \"builddir=%configuration%%arch%%linking%\" "
+- cmd: "echo Building %configuration% %arch% using %linking% libraries.."
+- cmd: "cmake -G \"%generator%\" -DCMAKE_BUILD_TYPE=%configuration% -H. -B%builddir% -DCMAKE_TOOLCHAIN_FILE=%VCPKG%\\scripts\\buildsystems\\vcpkg.cmake -DLINKING_TYPE=%linking%"
+- cmd: "cmake --build .\\%builddir% --config %configuration%"
