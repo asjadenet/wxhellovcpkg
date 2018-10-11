@@ -1,0 +1,1 @@
+CALL buildmsvc.bat Win64 Release static

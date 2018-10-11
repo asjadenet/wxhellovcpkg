@@ -5,9 +5,12 @@ EXIT /B
 )
 IF "%1"=="" ( 
 SET "arch=Win64"
-SET "generator=Visual Studio 15 2017 Win64"
 ) ELSE ( 
 SET "arch=%1"
+)
+IF "%arch%"=="Win64" (
+SET "generator=Visual Studio 15 2017 Win64"
+) ELSE (
 SET "generator=Visual Studio 15 2017"
 )
 IF "%2"=="" ( SET "build=Release" ) ELSE ( SET "build=%2" )
