@@ -2,7 +2,7 @@
 Simple sample wxWidgets CMake project for all platforms, especially using [Vcpkg](https://github.com/Microsoft/vcpkg) and Visual Studio on Windows
 ## Overview
 There has not been an almost standard way to organize C++ development packages on Windows. 
-On Linux or MasOS it's much simpler.
+On Linux or MacOS it's much simpler.
 Microsoft [Vcpkg](https://github.com/Microsoft/vcpkg) is quite a good package manager for Windows, that can help a lot. It was hard to get started with wxWidgets and it could take hours to everything set up. Here is simple sample project for a quick start. C++ layout files are generated with [wxFormBuilder](https://github.com/wxFormBuilder/wxFormBuilder).
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
