@@ -44,3 +44,14 @@ DebugWin64dynamic/
 DebugWin32dynamic/
 msys2build32/
 msys2build64/
+wxWidgets-3.1.2/
+Get-ExecutableType.ps1
+wxWidgets-3.1.2.7z
+build_Release_Win32_static_wxhello/
+build_Release_Win32_dynamic_wxhello/
+build_Debug_Win32_static_wxhello/
+build_Debug_Win32_dynamic_wxhello/
+build_Release_Win64_static_wxhello/
+build_Release_Win64_dynamic_wxhello/
+build_Debug_Win64_static_wxhello/
+build_Debug_Win64_dynamic_wxhello/
