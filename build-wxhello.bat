@@ -1,5 +1,5 @@
 @echo off
-CALL renvcpkg.bat %VCPKG%
+REM CALL renvcpkg.bat %VCPKG%
 IF "%1"=="" ( 
 SET "arch=Win64"
 ) ELSE ( 
@@ -54,4 +54,4 @@ if ERRORLEVEL 1 goto error
 popd
 
 Powershell.exe -executionpolicy remotesigned -command  ". .\Get-ExecutableType.ps1 ; Get-ExecutableType -Path   .\build_%BUILD%_%arch%_%linking%_wxhello\%build%\wxHello.exe"
-CALL renvcpkg-back.bat %VCPKG%
+REM CALL renvcpkg-back.bat %VCPKG%
