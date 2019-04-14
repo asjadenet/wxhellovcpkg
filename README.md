@@ -62,9 +62,12 @@ SET WX_VS_VER=2019
 ### Visual Studio and building from source
 Sometimes it's better to build wxWidgets libraries from source. For example, source code examples are easier to build and run. Use batch file installwx.bat for this:
 
+Environment variable WX_INSTALL_PATH default value is C:\wxlibs, but you can modify it whenever you want to put wxWidgets libraries and headers.
+
 ```
 installwx.bat
 ```
+It calls batch file initwx.bat. 7zip is necessary for unzipping. Make sure 7z is in your path.
 
 For different targets use command line arguments:
 
@@ -72,12 +75,24 @@ For different targets use command line arguments:
 installwx.bat Win32 Debug dynamic
 ```
 
+
 For using Visual Studio 2019, set envionment variable WX_VS_VER before building:
 
 ```
 SET WX_VS_VER=2019
 ```
 
+If you want to modify helloworld app source code and build, it's necessary only to call build-wxhello.bat.
+
+```
+build-wxhello.bat
+```
+
+For different targets use command line arguments:
+
+```
+build-wxhello.bat Win32 Release static
+```
 
 ### MSYS2
 Install build environment and all dependencies. Here is example how to install cmake and wxWidgets:
