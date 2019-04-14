@@ -9,15 +9,17 @@ Microsoft [Vcpkg](https://github.com/Microsoft/vcpkg) is quite a good package ma
 
 | Build status          | Systems / Compilers         |   CI    |
 | ----------------------|-----------------------------|---------|
-|[![Build status](https://ci.appveyor.com/api/projects/status/nwy0sbejq3g43l0i/branch/master?svg=true)](https://ci.appveyor.com/project/asjadenet/wxhellovcpkg-68a32/branch/master)|Windows|AppVeyor|
+|[![Build status](https://ci.appveyor.com/api/projects/status/nwy0sbejq3g43l0i/branch/master?svg=true)](https://ci.appveyor.com/project/asjadenet/wxhellovcpkg-68a32/branch/master)|Windows VCPKG|AppVeyor|
+|[![Build status](https://ci.appveyor.com/api/projects/status/npa74uehfufer6hl/branch/master?svg=true)](https://ci.appveyor.com/project/asjadenet/wxhellovcpkg-jgqmr)|Windows wxWidgets source Win64|AppVeyor|
+|[![Build status](https://ci.appveyor.com/api/projects/status/jxo9banw18at40wr/branch/master?svg=true)](https://ci.appveyor.com/project/asjadenet/wxhellovcpkg-u9bdg)|Windows wxWidgets source Win32|AppVeyor|
 |[![Build status](https://ci.appveyor.com/api/projects/status/bim8mq9csh0u6eeq?svg=true)](https://ci.appveyor.com/project/asjadenet/wxhellovcpkg)|Ununtu Linux GNU 5.4.0|AppVeyor|
 |[![Build status](https://travis-ci.org/asjadenet/wxhellovcpkg.svg?branch=master)](https://travis-ci.org/asjadenet/wxhellovcpkg)|Ununtu Linux, OS X|Travis|
 
 ## Prerequisites:
 - Windows 10, 8.1, 7, Linux, or MacOS
-- Visual Studio 2017 or Visual Studio 2015 Update 3 (on Windows)
+- Visual Studio 2017 or Visual Studio 2019 (on Windows)
 - Git
-- CMake
+- CMake (version 3.14 or later for Visual Studio 2019)
 - [wxFormBuilder](https://github.com/wxFormBuilder/wxFormBuilder)
 
 # Quick Start
@@ -44,6 +46,38 @@ git clone https://github.com/asjadenet/wxhellovcpkg.git
 cd wxhellovcpkg
 buildmsvc.bat
 ```
+
+You can specify different targets using command line arguments. For example:
+
+```
+buildmsvc.bat Win32 Debug dynamic
+```
+
+For using Visual Studio 2019, set envionment variable WX_VS_VER before building:
+
+```
+SET WX_VS_VER=2019
+```
+
+### Visual Studio and building from source
+Sometimes it's better to build wxWidgets libraries from source. For example, source code examples are easier to build and run. Use batch file installwx.bat for this:
+
+```
+installwx.bat
+```
+
+For different targets use command line arguments:
+
+```
+installwx.bat Win32 Debug dynamic
+```
+
+For using Visual Studio 2019, set envionment variable WX_VS_VER before building:
+
+```
+SET WX_VS_VER=2019
+```
+
 
 ### MSYS2
 Install build environment and all dependencies. Here is example how to install cmake and wxWidgets:
