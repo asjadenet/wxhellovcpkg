@@ -12,6 +12,10 @@ if(NOT CMAKE_BUILD_TYPE)
       STRING "Choose the type of build." FORCE)
 endif()
 
+if(MSVC)
+    add_definitions(/MP)
+endif()
+
 if(MSVC AND NOT WXSOURCE)
     include(${CMAKE_SOURCE_DIR}/winmsvc.cmake)
 else()
