@@ -26,13 +26,13 @@ build_script:
     REM call build-wxhello.bat Win64 Release dynamic
 
 
-    call buildwx.bat Win32 Debug static
+    REM call buildwx.bat Win32 Debug static
 
-    call build-wxhello.bat Win32 Debug static
+    REM call build-wxhello.bat Win32 Debug static
 
-    call buildwx.bat Win32 Debug dynamic
+    REM call buildwx.bat Win32 Debug dynamic
 
-    call build-wxhello.bat Win32 Debug dynamic
+    REM call build-wxhello.bat Win32 Debug dynamic
 
 
     call buildwx.bat Win32 Release static

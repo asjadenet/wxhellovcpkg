@@ -8,13 +8,13 @@ install:
     call initwx.bat
 build_script:
 - cmd: >-
-    call buildwx.bat Win64 Debug static
+    REM call buildwx.bat Win64 Debug static
 
-    call build-wxhello.bat Win64 Debug static
+    REM call build-wxhello.bat Win64 Debug static
 
-    call buildwx.bat Win64 Debug dynamic
+    REM call buildwx.bat Win64 Debug dynamic
 
-    call build-wxhello.bat Win64 Debug dynamic
+    REM call build-wxhello.bat Win64 Debug dynamic
 
 
     call buildwx.bat Win64 Release static
