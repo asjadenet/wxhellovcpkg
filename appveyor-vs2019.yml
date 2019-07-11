@@ -28,13 +28,14 @@ build_script:
 - cmd: "SET VCPKG=C:\\tools\\vcpkg"
 
 - cmd: "SET \"arch=Win64\""
-- cmd: "SET \"generator=Visual Studio 16 2019 Win64\""
+- cmd: "SET \"target=x64\""
+- cmd: "SET \"generator=Visual Studio 16 2019\""
 # - cmd: "SET \"build=Release\" "
 
 - cmd: "SET \"linking=dynamic\""
 - cmd: "set \"builddir=%configuration%%arch%%linking%\" "
 - cmd: "echo Building %configuration% %arch% using %linking% libraries.."
-- cmd: "cmake -G \"%generator%\" -DCMAKE_BUILD_TYPE=%configuration% -H. -B%builddir% -DCMAKE_TOOLCHAIN_FILE=%VCPKG%\\scripts\\buildsystems\\vcpkg.cmake -DLINKING_TYPE=%linking%"
+- cmd: "cmake -G \"%generator%\" -A %target% -DCMAKE_BUILD_TYPE=%configuration% -H. -B%builddir% -DCMAKE_TOOLCHAIN_FILE=%VCPKG%\\scripts\\buildsystems\\vcpkg.cmake -DLINKING_TYPE=%linking%"
 - cmd: "cmake --build .\\%builddir% --config %configuration%"
 
 - cmd: "SET \"linking=static\""
