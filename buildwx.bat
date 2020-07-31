@@ -1,5 +1,5 @@
 @echo off
-cd wxWidgets-3.1.2
+cd wxWidgets-3.1.4
 IF "%WX_INSTALL_PATH%"=="" (
 ECHO Environment variable WX_INSTALL_PATH is NOT defined, for example SET WX_INSTALL_PATH=C:\wxlibs
 EXIT /B
