@@ -75,6 +75,11 @@ For different targets use command line arguments:
 installwx.bat Win32 Debug dynamic
 ```
 
+If you want to build samples also, add fourth parameter *samples*.
+
+```
+installwx.bat Win64 Release static samples
+```
 
 For using Visual Studio 2019, set envionment variable WX_VS_VER before building:
 

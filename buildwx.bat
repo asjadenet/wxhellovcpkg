@@ -43,6 +43,8 @@ if "%linking%"=="" (
 IF "%3"=="" ( SET "linking=static" ) ELSE ( SET "linking=%3" )
 )
 
+IF "%4"=="" ( SET "samples=SOME" ) ELSE ( SET "samples=ALL" )
+
 IF "%linking%"=="static" (
 SET SHARED=OFF
 ) ELSE (
@@ -64,7 +66,7 @@ if not exist %WX_INSTALL_PATH% mkdir %WX_INSTALL_PATH%
 if exist build_cmake rmdir /S /Q build_cmake
 mkdir build_cmake
 pushd build_cmake
-cmake -G "%GENERATOR%" -A %target% -DwxBUILD_TESTS=%BUILD_TESTS% -DCMAKE_INSTALL_PREFIX=%WX_INSTALL_PATH% -DwxBUILD_SHARED=%SHARED% %CMAKE_CONFIGURE_FLAGS% ..
+cmake -G "%GENERATOR%" -A %target% -DwxBUILD_SAMPLES=%samples% -DwxBUILD_TESTS=%BUILD_TESTS% -DCMAKE_INSTALL_PREFIX=%WX_INSTALL_PATH% -DwxBUILD_SHARED=%SHARED% %CMAKE_CONFIGURE_FLAGS% ..
 if ERRORLEVEL 1 goto error
 echo.
 echo --- Starting the build
