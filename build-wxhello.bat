@@ -11,11 +11,12 @@ REM ) ELSE (
 REM SET "generator=Visual Studio 15 2017"
 REM )
 
-IF "%WX_VS_VER%"=="2019" ( 
-SET "generator=Visual Studio 16 2019"
-) ELSE (
-SET "generator=Visual Studio 15 2017"
-)
+REM IF "%WX_VS_VER%"=="2019" ( 
+REM SET "generator=Visual Studio 16 2019"
+REM ) ELSE (
+REM SET "generator=Visual Studio 15 2017"
+REM )
+SET "generator=Visual Studio 17 2022"
 
 IF "%arch%"=="Win64" ( 
 SET "target=x64"
@@ -53,5 +54,5 @@ if ERRORLEVEL 1 goto error
 :error
 popd
 
-Powershell.exe -executionpolicy remotesigned -command  ". .\Get-ExecutableType.ps1 ; Get-ExecutableType -Path   .\build_%BUILD%_%arch%_%linking%_wxhello\%build%\wxHello.exe"
+REM Powershell.exe -executionpolicy remotesigned -command  ". .\Get-ExecutableType.ps1 ; Get-ExecutableType -Path   .\build_%BUILD%_%arch%_%linking%_wxhello\%build%\wxHello.exe"
 REM CALL renvcpkg-back.bat %VCPKG%

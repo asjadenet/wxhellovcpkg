@@ -26,8 +26,8 @@ REM )
 REM IF "%2"=="" ( SET "build=Release" ) ELSE ( SET "build=%2" )
 REM IF "%3"=="" ( SET "linking=static" ) ELSE ( SET "linking=%3" )
 
-IF NOT EXIST .\wxWidgets-3.1.2.7z (
-powershell -command "[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12; Invoke-WebRequest https://github.com/wxWidgets/wxWidgets/releases/download/v3.1.4/wxWidgets-3.1.4.7z -OutFile .\wxWidgets-3.1.4.7z"
+IF NOT EXIST .\wxWidgets-3.1.5.7z (
+powershell -command "[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12; Invoke-WebRequest https://github.com/wxWidgets/wxWidgets/releases/download/v3.1.5/wxWidgets-3.1.5.7z -OutFile .\wxWidgets-3.1.5.7z"
 )
 
 IF NOT EXIST .\Get-ExecutableType.ps1 (
@@ -39,7 +39,7 @@ IF %ERRORLEVEL% NEQ 0 (
 ECHO 7z command not found. Please install 7zip and make sure it is in your path.
 EXIT /B
 )
-7z x .\wxWidgets-3.1.4.7z -o"wxWidgets-3.1.4" -aoa
+7z x .\wxWidgets-3.1.5.7z -o"wxWidgets-3.1.5" -aoa
 
 IF "%linking%"=="static" (
 SET SHARED=OFF

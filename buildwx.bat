@@ -1,5 +1,5 @@
 @echo off
-cd wxWidgets-3.1.4
+cd wxWidgets-3.1.5
 IF "%WX_INSTALL_PATH%"=="" (
 ECHO Environment variable WX_INSTALL_PATH is NOT defined, for example SET WX_INSTALL_PATH=C:\wxlibs
 EXIT /B
@@ -21,11 +21,13 @@ REM ) ELSE (
 REM SET "generator=Visual Studio 15 2017"
 REM )
 
-IF "%WX_VS_VER%"=="2019" ( 
-SET "generator=Visual Studio 16 2019"
-) ELSE (
-SET "generator=Visual Studio 15 2017"
-)
+REM IF "%WX_VS_VER%"=="2019" ( 
+REM SET "generator=Visual Studio 16 2019"
+REM ) ELSE (
+REM SET "generator=Visual Studio 15 2017"
+REM )
+
+SET "generator=Visual Studio 17 2022"
 
 IF "%arch%"=="Win64" ( 
 SET "target=x64"
