@@ -8,11 +8,8 @@ SET "arch=Win64"
 ) ELSE ( 
 SET "arch=%1"
 )
-IF "%WX_VS_VER%"=="2019" ( 
-SET "generator=Visual Studio 16 2019"
-) ELSE (
-SET "generator=Visual Studio 15 2017"
-)
+
+SET "generator=Visual Studio 17 2022"
 
 IF "%arch%"=="Win64" ( 
 SET "target=x64"

@@ -69,3 +69,7 @@ elseif("${CMAKE_BUILD_TYPE}" MATCHES "Release")
         comctl32 Rpcrt4
 		)
 endif()
+
+if (NOT VCPKG_TARGET_TRIPLET MATCHES "static")
+file(COPY ${_VCPKG_INSTALLED_DIR}/${VCPKG_TARGET_TRIPLET}/bin/pcre2-16.dll DESTINATION ${APP_BIN_PATH}${CMAKE_BUILD_TYPE})
+endif()
