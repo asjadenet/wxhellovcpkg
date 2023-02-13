@@ -34,6 +34,7 @@
 .idea/
 Build/
 build/
+build_cmake/
 ReleaseWin64static/
 ReleaseWin32static/
 DebugWin64static/

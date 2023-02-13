@@ -1,5 +1,5 @@
 @echo off
-cd wxWidgets-3.1.5
+cd wxWidgets-3.2.2
 IF "%WX_INSTALL_PATH%"=="" (
 ECHO Environment variable WX_INSTALL_PATH is NOT defined, for example SET WX_INSTALL_PATH=C:\wxlibs
 EXIT /B
@@ -15,17 +15,6 @@ SET "arch=Win64"
 SET "arch=%1"
 )
 
-REM IF "%arch%"=="Win64" (
-REM SET "generator=Visual Studio 15 2017 Win64"
-REM ) ELSE (
-REM SET "generator=Visual Studio 15 2017"
-REM )
-
-REM IF "%WX_VS_VER%"=="2019" ( 
-REM SET "generator=Visual Studio 16 2019"
-REM ) ELSE (
-REM SET "generator=Visual Studio 15 2017"
-REM )
 
 SET "generator=Visual Studio 17 2022"
 
@@ -38,9 +27,15 @@ SET "target=Win32"
 echo using generator %GENERATOR%
 echo using target %TARGET%
 
+SET "build=%2"
+
 if "%BUILD%"=="" (
-IF "%2"=="" ( SET "build=Release" ) ELSE ( SET "build=%2" )
+SET "build=Release"
 )
+
+echo using build %BUILD%
+pause
+
 if "%linking%"=="" (
 IF "%3"=="" ( SET "linking=static" ) ELSE ( SET "linking=%3" )
 )
@@ -61,19 +56,21 @@ if "%SKIPTESTS%"=="1" (
 echo.
 echo --- Generating project files
 echo.
-REM set WX_INSTALL_PATH=%HOMEDRIVE%%HOMEPATH%\wx_install_target
-REM set WX_INSTALL_PATH=E:\cpp-pkg
+
 if "%WX_INSTALL_PATH%"=="" set WX_INSTALL_PATH=C:\third_cpp
 if not exist %WX_INSTALL_PATH% mkdir %WX_INSTALL_PATH%
 if exist build_cmake rmdir /S /Q build_cmake
 mkdir build_cmake
 pushd build_cmake
-cmake -G "%GENERATOR%" -A %target% -DwxBUILD_SAMPLES=%samples% -DwxBUILD_TESTS=%BUILD_TESTS% -DCMAKE_INSTALL_PREFIX=%WX_INSTALL_PATH% -DwxBUILD_SHARED=%SHARED% %CMAKE_CONFIGURE_FLAGS% ..
+cmake -G "%GENERATOR%" -A %target% -DWXUSINGDLL=ON -DwxBUILD_SAMPLES=%samples% -DwxBUILD_TESTS=%BUILD_TESTS% -DCMAKE_INSTALL_PREFIX=%WX_INSTALL_PATH% -DwxBUILD_SHARED=%SHARED% %CMAKE_CONFIGURE_FLAGS% ..
 if ERRORLEVEL 1 goto error
 echo.
-echo --- Starting the build
+echo --- Starting the %BUILD% build
 echo.
+pause
 cmake --build . --config %BUILD% -- %CMAKE_NATIVE_FLAGS% 
+echo --- build type now: %BUILD%
+pause
 if ERRORLEVEL 1 goto error
 
 

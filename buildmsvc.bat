@@ -23,5 +23,5 @@ RMDIR .\%builddir% /S /Q
 echo Building %build% %arch% using %linking% libraries..
 cmake -G "%generator%" -A %target% -DCMAKE_BUILD_TYPE=%build% -H. -B%builddir% -DCMAKE_TOOLCHAIN_FILE=%VCPKG%\scripts\buildsystems\vcpkg.cmake -DLINKING_TYPE=%linking%
 cmake --build .\%builddir% --config %build%
-echo starting application %builddir%\%build%\wxHello.exe
-%builddir%\%build%\wxHello.exe
+echo build result:
+dir %builddir%\%build%\wxHello.exe
