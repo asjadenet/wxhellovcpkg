@@ -50,9 +50,9 @@ if("${CMAKE_BUILD_TYPE}" MATCHES "Debug")
 	include_directories(${_VCPKG_INSTALLED_DIR}/${VCPKG_TARGET_TRIPLET}/debug/lib/mswud ${_VCPKG_INSTALLED_DIR}/${VCPKG_TARGET_TRIPLET}/include)
 	set(wxWidgets_LIB_DIR ${_VCPKG_INSTALLED_DIR}/${VCPKG_TARGET_TRIPLET}/debug/lib)
 	set(wxWidgets_LIBRARIES
-		${wxWidgets_LIB_DIR}/wxbase31ud_net.lib
-		${wxWidgets_LIB_DIR}/wxmsw31ud_core.lib
-		${wxWidgets_LIB_DIR}/wxbase31ud.lib
+		${wxWidgets_LIB_DIR}/wxbase32ud_net.lib
+		${wxWidgets_LIB_DIR}/wxmsw32ud_core.lib
+		${wxWidgets_LIB_DIR}/wxbase32ud.lib
         ${wxWidgets_LIB_DIR}/libpng16d.lib
         ${wxWidgets_LIB_DIR}/zlibd.lib
         comctl32 Rpcrt4
@@ -61,15 +61,15 @@ elseif("${CMAKE_BUILD_TYPE}" MATCHES "Release")
 	include_directories(${_VCPKG_INSTALLED_DIR}/${VCPKG_TARGET_TRIPLET}/lib/mswu ${_VCPKG_INSTALLED_DIR}/${VCPKG_TARGET_TRIPLET}/include)
 	set(wxWidgets_LIB_DIR ${_VCPKG_INSTALLED_DIR}/${VCPKG_TARGET_TRIPLET}/lib)
 	set(wxWidgets_LIBRARIES
-		${wxWidgets_LIB_DIR}/wxbase31u_net.lib
-		${wxWidgets_LIB_DIR}/wxmsw31u_core.lib
-		${wxWidgets_LIB_DIR}/wxbase31u.lib
+		${wxWidgets_LIB_DIR}/wxbase32u_net.lib
+		${wxWidgets_LIB_DIR}/wxmsw32u_core.lib
+		${wxWidgets_LIB_DIR}/wxbase32u.lib
         ${wxWidgets_LIB_DIR}/libpng16.lib
         ${wxWidgets_LIB_DIR}/zlib.lib
         comctl32 Rpcrt4
 		)
 endif()
 
-if (NOT VCPKG_TARGET_TRIPLET MATCHES "static")
-file(COPY ${_VCPKG_INSTALLED_DIR}/${VCPKG_TARGET_TRIPLET}/bin/pcre2-16.dll DESTINATION ${APP_BIN_PATH}${CMAKE_BUILD_TYPE})
-endif()
+#if (NOT VCPKG_TARGET_TRIPLET MATCHES "static")
+#file(COPY ${_VCPKG_INSTALLED_DIR}/${VCPKG_TARGET_TRIPLET}/bin/pcre2-16.dll DESTINATION ${APP_BIN_PATH}${CMAKE_BUILD_TYPE})
+#endif()
