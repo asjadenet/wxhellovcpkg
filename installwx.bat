@@ -13,5 +13,5 @@ GOTO END
 
 CALL buildwx.bat %1 %2 %3 %4
 
-REM CALL build-wxhello.bat  %1 %2 %3
+CALL build-wxhello.bat  %1 %2 %3
 :END
