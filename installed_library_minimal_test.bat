@@ -1,6 +1,7 @@
 echo.
 echo --- Test installed library
 echo.
+pushd wxWidgets-3.2.2
 if exist build_%BUILD%_%arch%_%linking%_minimal RMDIR /S /Q build_%BUILD%_%arch%_%linking%_minimal
 mkdir build_%BUILD%_%arch%_%linking%_minimal
 pushd build_%BUILD%_%arch%_%linking%_minimal
@@ -10,4 +11,5 @@ if ERRORLEVEL 1 goto error
 echo --- Building minimal sample with installed library
 cmake --build . --config %BUILD% -- 
 if ERRORLEVEL 1 goto error
+popd
 popd
