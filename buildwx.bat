@@ -34,7 +34,6 @@ SET "build=Release"
 )
 
 echo using build %BUILD%
-pause
 
 if "%linking%"=="" (
 IF "%3"=="" ( SET "linking=static" ) ELSE ( SET "linking=%3" )
@@ -67,10 +66,7 @@ if ERRORLEVEL 1 goto error
 echo.
 echo --- Starting the %BUILD% build
 echo.
-pause
-cmake --build . --config %BUILD% -- %CMAKE_NATIVE_FLAGS% 
-echo --- build type now: %BUILD%
-pause
+cmake --build . --config %BUILD% -- %CMAKE_NATIVE_FLAGS%
 if ERRORLEVEL 1 goto error
 
 
@@ -91,7 +87,7 @@ if NOT "%SKIPINSTALL%"=="1" (
     mkdir build_%BUILD%_%arch%_%linking%_minimal
     pushd build_%BUILD%_%arch%_%linking%_minimal
     echo --- Configure minimal sample
-    cmake -G "%GENERATOR%" -A %target% ..\samples\minimal
+    cmake -G "%GENERATOR%" -A %target% ..\samples\minimal -DwxWidgets_DIR=%WX_INSTALL_PATH%/lib/cmake/wxWidgets
     if ERRORLEVEL 1 goto error
     echo --- Building minimal sample with installed library
     cmake --build . --config %BUILD% -- 
