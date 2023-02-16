@@ -12,7 +12,7 @@ Microsoft [Vcpkg](https://github.com/Microsoft/vcpkg) is quite a good package ma
 |[![Build status](https://ci.appveyor.com/api/projects/status/nwy0sbejq3g43l0i/branch/master?svg=true)](https://ci.appveyor.com/project/asjadenet/wxhellovcpkg-68a32/branch/master)|Windows VCPKG|AppVeyor|
 |[![Build status](https://ci.appveyor.com/api/projects/status/npa74uehfufer6hl/branch/master?svg=true)](https://ci.appveyor.com/project/asjadenet/wxhellovcpkg-jgqmr)|Windows wxWidgets source Win64|AppVeyor|
 |[![Build status](https://ci.appveyor.com/api/projects/status/jxo9banw18at40wr/branch/master?svg=true)](https://ci.appveyor.com/project/asjadenet/wxhellovcpkg-u9bdg)|Windows wxWidgets source Win32|AppVeyor|
-|[![Build status](https://ci.appveyor.com/api/projects/status/bim8mq9csh0u6eeq?svg=true)](https://ci.appveyor.com/project/asjadenet/wxhellovcpkg)|Ununtu Linux GNU 5.4.0|AppVeyor|
+|[![Build status](https://ci.appveyor.com/api/projects/status/bim8mq9csh0u6eeq?svg=true)](https://ci.appveyor.com/project/asjadenet/wxhellovcpkg)|Ubuntu Linux GNU 5.4.0|AppVeyor|
 |[![Build status](https://ci.appveyor.com/api/projects/status/n71pdgf75njvqh1t?svg=true)](https://ci.appveyor.com/project/asjadenet/wxhellovcpkg-b5on7)|MacOS|AppVeyor|
 
 ## Prerequisites:
