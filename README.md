@@ -119,7 +119,7 @@ In 32-bit shell run:
 ./buildmsys32.sh
 ```
 ## Linux
-Your can install wxwidgets on Ununtu Linux using command:
+Your can install wxwidgets on Ubuntu Linux using command:
 ```
 sudo apt-get install libwxgtk3.0-dev
 ```
